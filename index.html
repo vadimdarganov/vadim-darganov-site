@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f0e8">
+  <meta name="description" content="Вадим Дарганов — художник. Сюрреалистическая живопись, неожиданные идеи и картины, которые невозможно развидеть.">
+  <title>Вадим Дарганов — художник</title>
+  <style>
+    :root {
+      --paper: #f4f0e8;
+      --ink: #171713;
+      --acid: #d9ff36;
+      --orange: #ff6238;
+      --line: rgba(23,23,19,.22);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1180px, 90%);
+      margin: auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: -.7px;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    nav a { text-decoration: none; }
+
+    .hero {
+      padding: 75px 0 55px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin: 25px 0;
+      font-size: clamp(52px, 11.5vw, 145px);
+      line-height: .82;
+      letter-spacing: -.095em;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--orange);
+    }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-top: 42px;
+    }
+
+    .intro {
+      max-width: 440px;
+      font-size: clamp(17px, 2vw, 23px);
+      line-height: 1.35;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 17px 22px;
+      background: var(--ink);
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: var(--orange);
+      transform: translateY(-2px);
+    }
+
+    .ticker {
+      overflow: hidden;
+      white-space: nowrap;
+      background: var(--acid);
+      padding: 14px 0;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section {
+      padding: 76px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 6vw, 66px);
+      letter-spacing: -.07em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .section-note {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 36px 20px;
+    }
+
+    .art-card { min-width: 0; }
+
+    .artwork {
+      aspect-ratio: 4 / 5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      background: #252cdb;
+    }
+
+    .artwork svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .art-card:nth-child(2) .artwork { background: #ed613d; }
+    .art-card:nth-child(3) .artwork { background: #e5e0d4; }
+    .art-card:nth-child(4) .artwork { background: #25251f; }
+
+    .art-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: start;
+      padding-top: 12px;
+    }
+
+    .art-info h3 {
+      font-size: clamp(15px, 2vw, 21px);
+      margin: 0 0 6px;
+      text-transform: uppercase;
+    }
+
+    .art-info p {
+      margin: 0;
+      font-size: 12px;
+      opacity: .7;
+    }
+
+    .number { font-size: 12px; }
+
+    .placeholder-note {
+      margin-top: 25px;
+      font-size: 12px;
+      line-height: 1.5;
+      opacity: .7;
+    }
+
+    .about {
+      background: var(--acid);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .about-copy {
+      max-width: 540px;
+      font-size: clamp(19px, 3vw, 30px);
+      line-height: 1.25;
+      letter-spacing: -.04em;
+    }
+
+    .about-copy p { margin-top: 0; }
+
+    .manifesto {
+      font-size: clamp(38px, 7vw, 85px);
+      font-weight: 900;
+      line-height: .9;
+      letter-spacing: -.08em;
+      text-transform: uppercase;
+    }
+
+    .contact {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .contact h2 {
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+    }
+
+    .contact-row p {
+      max-width: 420px;
+      line-height: 1.5;
+      opacity: .8;
+    }
+
+    .contact .button {
+      background: var(--acid);
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px 0;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 600px) {
+      .wrap { width: 90%; }
+      header { align-items: flex-start; }
+      nav { gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+      nav a { font-size: 10px; }
+      .hero { padding: 58px 0 40px; }
+      .hero-bottom, .contact-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .section { padding: 54px 0; }
+      .art-grid { gap: 24px 12px; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+      .about-grid { grid-template-columns: 1fr; gap: 24px; }
+      footer { flex-direction: column; }
+      .art-info { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="logo" href="#top" style="text-decoration:none">VD / ART</a>
+    <nav>
+      <a href="#works">Работы</a>
+      <a href="#about">О художнике</a>
+      <a href="#contact">Контакт</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="eyebrow">Художник · Живопись · Необычные идеи</div>
+      <h1>Вадим <span>Дарганов.</span></h1>
+      <div class="hero-bottom">
+        <div class="intro">
+          Пишу картины, в которых всё выглядит знакомым.
+          Пока не присмотришься.
+        </div>
+        <a class="button" href="#works">Смотреть работы ↘</a>
+      </div>
+    </section>
+
+    <div class="ticker">
+      НЕ ИЩИТЕ СМЫСЛ. ИЛИ ИЩИТЕ. · СЮРРЕАЛИЗМ С ХАРАКТЕРОМ · НЕ ИЩИТЕ СМЫСЛ. ИЛИ ИЩИТЕ. ·
+    </div>
+
+    <section class="section wrap" id="works">
+      <div class="section-head">
+        <h2>Из мастерской</h2>
+        <div class="section-note">Избранные работы / 2026</div>
+      </div>
+
+      <div class="art-grid">
+        <article class="art-card">
+          <div class="artwork">
+            <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Абстрактная графическая композиция">
+              <rect width="400" height="500" fill="#252cdb"/>
+              <circle cx="205" cy="235" r="126" fill="#b8fa37"/>
+              <path d="M75 340 C80 130 320 120 325 340 C300 420 100 420 75 340Z" fill="#ff6238"/>
+              <path d="M110 140 L280 365 L310 145 L95 350 Z" fill="none" stroke="#f4f0e8" stroke-width="15"/>
+              <circle cx="205" cy="235" r="24" fill="#171713"/>
+            </svg>
+          </div>
+          <div class="art-info">
+            <div><h3>Не тот вопрос</h3><p>Живопись · Детали по запросу</p></div>
+            <div class="number">01</div>
+          </div>
+        </article>
+
+        <article class="art-card">
+          <div class="artwork">
+            <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Графические птицы на оранжевом фоне">
+              <rect width="400" height="500" fill="#ed613d"/>
+              <circle cx="200" cy="230" r="135" fill="#f4f0e8"/>
+              <path d="M80 360 Q80 210 160 170 L180 320 Q125 330 80 360Z" fill="#252cdb"/>
+              <path d="M320 360 Q320 210 240 170 L220 320 Q275 330 320 360Z" fill="#b8fa37"/>
+              <path d="M160 170 Q200 110 240 170 L220 320 L180 320Z" fill="#171713"/>
+              <path d="M160 170 L90 145 L120 200Z" fill="#171713"/>
+              <path d="M240 170 L310 145 L280 200Z" fill="#171713"/>
+              <path d="M180 320 L155 400 M220 320 L245 400" stroke="#171713" stroke-width="9" fill="none"/>
+            </svg>
+          </div>
+          <div class="art-info">
+            <div><h3>Сложные отношения</h3><p>Живопись · Детали по запросу</p></div>
+            <div class="number">02</div>
+          </div>
+        </article>
+
+        <article class="art-card">
+          <div class="artwork">
+            <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Минималистичная композиция с кругами">
+              <rect width="400" height="500" fill="#e5e0d4"/>
+              <circle cx="200" cy="235" r="140" fill="#ff6238"/>
+              <circle cx="200" cy="235" r="95" fill="#252cdb"/>
+              <circle cx="200" cy="235" r="50" fill="#b8fa37"/>
+              <path d="M55 390 L345 95" stroke="#171713" stroke-width="14"/>
+              <circle cx="200" cy="235" r="12" fill="#f4f0e8"/>
+            </svg>
+          </div>
+          <div class="art-info">
+            <div><h3>Точка зрения</h3><p>Живопись · Детали по запросу</p></div>
+            <div class="number">03</div>
+          </div>
+        </article>
+
+        <article class="art-card">
+          <div class="artwork">
+            <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Абстрактная фигура на тёмном фоне">
+              <rect width="400" height="500" fill="#25251f"/>
+              <path d="M200 65 L320 190 L200 435 L80 190Z" fill="#b8fa37"/>
+              <path d="M200 105 L275 195 L200 365 L125 195Z" fill="#ff6238"/>
+              <circle cx="200" cy="220" r="48" fill="#252cdb"/>
+              <path d="M150 220 Q200 135 250 220 Q200 305 150 220Z" fill="#f4f0e8"/>
+            </svg>
+          </div>
+          <div class="art-info">
+            <div><h3>Без названия</h3><p>Живопись · Детали по запросу</p></div>
+            <div class="number">04</div>
+          </div>
+        </article>
+      </div>
+
+      <p class="placeholder-note">
+        Важно: изображения выше — временные графические заглушки, а не твои реальные картины.
+        Позже заменим их фотографиями оригинальных работ.
+      </p>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="wrap about-grid">
+        <div>
+          <div class="eyebrow">Кто всё это придумал?</div>
+          <div class="manifesto">Я не умею делать просто.</div>
+        </div>
+        <div class="about-copy">
+          <p>Я Вадим Дарганов. Меня увлекает момент, когда обычная идея вдруг становится чем-то странным, неожиданным и визуально точным.</p>
+          <p>В живописи я соединяю иронию, фантазию и любовь к образам, которые хочется разглядывать дольше нескольких секунд.</p>
+          <p>Здесь можно познакомиться с моими работами и выбрать картину для своего пространства.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="wrap">
+        <div class="eyebrow">Есть взаимный интерес?</div>
+        <h2>Некоторые картины лучше увидеть вживую.</h2>
+        <div class="contact-row">
+          <p>Чтобы узнать стоимость, размеры, наличие работы или обсудить покупку, напиши мне напрямую.</p>
+          <a class="button" href="https://t.me/VDar_artist" target="_blank" rel="noopener noreferrer">Написать в Telegram ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div>© Вадим Дарганов, 2026</div>
+    <div>Живопись с характером.</div>
+    <a href="https://t.me/VDar_artist" target="_blank" rel="noopener noreferrer">@VDar_artist</a>
+  </footer>
+</body>
+</html>
