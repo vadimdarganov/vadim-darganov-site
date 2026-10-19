@@ -168,16 +168,31 @@
       background: #f4f0e8;
     }
 
-    .artwork svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
+    .artwork {
+  aspect-ratio: 4 / 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  background: #f4f0e8;
+}
 
-    .art-card:nth-child(2) .artwork { background: #f4f0e8; }
-    .art-card:nth-child(3) .artwork { background: #f4f0e8; }
-    .art-card:nth-child(4) .artwork { background: #f4f0e8; }
+.artwork img,
+.artwork svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
 
+.art-card:nth-child(2) .artwork,
+.art-card:nth-child(3) .artwork,
+.art-card:nth-child(4) .artwork,
+.art-card:nth-child(5) .artwork,
+.art-card:nth-child(6) .artwork {
+  background: #f4f0e8;
+}
     .art-info {
       display: flex;
       justify-content: space-between;
