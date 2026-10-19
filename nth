@@ -1,4 +1,20 @@
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px 20px;
+  align-items: start;
+}
 
+.art-grid .art-card {
+  width: 100%;
+  min-width: 0;
+}
+
+.art-grid .artwork {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  box-sizing: border-box;
+}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -443,26 +459,7 @@
           <div class="art-info">
             <div><h3>Точка зрения</h3><p>Живопись · Детали по запросу</p></div>
             <div class="number">03</div>
-          </div>
-        </article>
-
-        <article class="art-card">
-          <div class="artwork">
-            <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Абстрактная фигура на тёмном фоне">
-              <rect width="400" height="500" fill="#25251f"/>
-              <path d="M200 65 L320 190 L200 435 L80 190Z" fill="#b8fa37"/>
-              <path d="M200 105 L275 195 L200 365 L125 195Z" fill="#ff6238"/>
-              <circle cx="200" cy="220" r="48" fill="#252cdb"/>
-              <path d="M150 220 Q200 135 250 220 Q200 305 150 220Z" fill="#f4f0e8"/>
-            </svg>
-          </div>
-          <div class="art-info">
-            <div><h3>Без названия</h3><p>Живопись · Детали по запросу</p></div>
-            <div class="number">04</div>
-          </div>
-        </article>
-      </div>
-
+         
       <p class="placeholder-note">
         Важно: изображения выше — временные графические заглушки, а не твои реальные картины.
         Позже заменим их фотографиями оригинальных работ.
